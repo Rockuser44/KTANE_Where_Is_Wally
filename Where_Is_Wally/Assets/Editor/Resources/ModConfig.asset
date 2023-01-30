@@ -11,12 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
   m_Name: ModConfig
   m_EditorClassIdentifier: 
-  id: DeadByDesklight
-  title: Dead by Desklight
+  id: WhereIsWally
+  title: Where Is Wally
   author: TonyNoNose
-  description: "\"Hopefully it isn't as buggy as the real videogame.\"\r\n\nYou must
-    determine which button to press based upon which Dead by Daylight killer you are
-    playing as and the states of the survivors.\r\n"
+  description: "\"No one ever asks \"How is Wally?\".\"\r\n\nFind Wally. Press picture
+    when is Wally."
   version: 0.1
   outputFolder: build
-  previewImage: {fileID: 2800000, guid: eb0efd623db519542870f468dc6f29a0, type: 3}
+  previewImage: {fileID: 2800000, guid: d91af914c482f6843b5f5303785c3fca, type: 3}
