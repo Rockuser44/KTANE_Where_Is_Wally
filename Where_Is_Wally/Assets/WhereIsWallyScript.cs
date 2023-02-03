@@ -22,7 +22,8 @@ public class WhereIsWallyScript : MonoBehaviour {
    public Renderer Picture;  
 
    //Image Arrays
-   public Material[] BeachImagesArray;
+   public Material[] BeachIncorrectImagesArray;
+   public Material[] BeachCorrectImagesArray;
    public Material[] GreekImagesArray;
       /*/Index is the following locations:
          0 = A1
@@ -50,7 +51,7 @@ public class WhereIsWallyScript : MonoBehaviour {
          22 = F3
          23 = F4
       /*/
-   int[] correctLocationArray = {13,3,0};
+   //int[] correctLocationArray = {13,3,0};
    /*/Array with the correct location for each Image array as follows:
          0 = 13   (D2 for beach image)
          1 = 3    (A4 for greeks image)
@@ -62,6 +63,7 @@ public class WhereIsWallyScript : MonoBehaviour {
    //Private variables
    private int currentImageIndex = 0;
    private int currentLocationIndex = 0;
+   private int correctLocationIndex = 0;
 
 
 
@@ -87,11 +89,16 @@ public class WhereIsWallyScript : MonoBehaviour {
    void Start () {
 
    
-      //Do things at start
+      
       //Determine which image you are using
-      currentImageIndex = UnityEngine.Random.Range(0,2);
-      //currentImageIndex = 1;  //force value for testing
-      Debug.LogFormat("[WhereIsWally #{0}] Wally can be found at {1}.", ModuleId, location[correctLocationArray[currentImageIndex]]);
+      //currentImageIndex = UnityEngine.Random.Range(0,2);
+      currentImageIndex = 0;  //force value for testing
+
+      //Dynamically generate a correct image for Wally
+      correctLocationIndex = UnityEngine.Random.Range(0,24);
+      //correctLocationIndex = 1;  //force value for testing
+
+      Debug.LogFormat("[WhereIsWally #{0}] Wally can be found at {1}.", ModuleId, location[correctLocationIndex]);
 
       //Make random starting location
       currentLocationIndex = UnityEngine.Random.Range(0,24);
@@ -193,7 +200,7 @@ public class WhereIsWallyScript : MonoBehaviour {
          Debug.LogFormat("[WhereIsWally #{0}] You pressed the centre button.", ModuleId);
       
      
-         if(currentLocationIndex == correctLocationArray[currentImageIndex]){
+         if(currentLocationIndex == correctLocationIndex){
             Debug.LogFormat("[WhereIsWally #{0}] Wally has been found!", ModuleId);
                GetComponent<KMBombModule>().HandlePass();
                
@@ -214,10 +221,17 @@ public class WhereIsWallyScript : MonoBehaviour {
          
       Debug.LogFormat("[WhereIsWally #{0}] Current location is {1}.", ModuleId, location[currentLocationIndex]);
 
+      //Beach Images
       if(currentImageIndex == 0){
-               Picture.sharedMaterial = BeachImagesArray[currentLocationIndex];
+               if(currentLocationIndex == correctLocationIndex){
+                  Picture.sharedMaterial = BeachCorrectImagesArray[currentLocationIndex];
+                  return;
+               }
+               else
+               Picture.sharedMaterial = BeachIncorrectImagesArray[currentLocationIndex];
                return;
             }
+      //Greeks Images      
       else if(currentImageIndex == 1){
                Picture.sharedMaterial = GreekImagesArray[currentLocationIndex];
                return;
