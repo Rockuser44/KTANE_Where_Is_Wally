@@ -1,8 +1,4 @@
 
-# Dead by Desklight: A KTANE mod
+# Where is Wally: A KTANE mod
 
-This is a mod by me, TonyNoNose, for KTANE themed around the videogame Dead By Daylight.
-
-
-It's the first mod I've ever made, and I made it following the tutorial by Deaf/Blan.
-Most of these files are ones I yoinked from their github.
+This is a mod by me, TonyNoNose, for KTANE themed around the book series Where's Wally (or Where's Waldo if ur American)
